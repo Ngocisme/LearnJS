@@ -14,21 +14,25 @@ class App extends React.Component {
     age: 26
   }
 
-  handleClick(){
-    alert('M là thang cc');
+  handleClick= (event) =>{
+    console.log("Tên: ", this.state.name)
+    this.setState({
+      name: "Lennon"
+    })
   }
 
-  handleOnMouse(event){
-
-    console.log(event)
+  handleOnMouse = (event) => {
+    console.log("Tên: ", this.state.name)
+    this.setState({
+      name: "John"
+    })
   }
 
   render(){
      return (
       <>
         <h1>{this.state.name}</h1>
-        <h1>{this.state.adress}</h1>
-        <button onClick={this.handleClick}>Click here</button>
+        <button onMouseEnter={this.handleClick}>Click here</button>
         <button onMouseEnter={this.handleOnMouse}>Hover Here</button>
       </>
      )

@@ -14,38 +14,25 @@ class App extends React.Component {
     age: 26
   }
 
+  handleClick(){
+    alert('M là thang cc');
+  }
+
+  handleOnMouse(event){
+
+    console.log(event)
+  }
+
   render(){
      return (
       <>
         <h1>{this.state.name}</h1>
         <h1>{this.state.adress}</h1>
+        <button onClick={this.handleClick}>Click here</button>
+        <button onMouseEnter={this.handleOnMouse}>Hover Here</button>
       </>
      )
   }
 }
-
-
-
-// const App = () => {
-//   const count = useSelector(state => state.counter.count);
-//   const dispatch = useDispatch();
-
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <MyComponent/>
-//         <div>Count = {count}</div>
-//         <button onClick={() => dispatch(increaseCounter())}>Increase</button>
-//         <button onClick={() => dispatch(decreaseCounter())}>Decrease</button>
-//       </header>
-
-     
-//     </div>
-//   );
-// }
 
 export default App;

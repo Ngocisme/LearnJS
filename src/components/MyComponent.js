@@ -1,14 +1,15 @@
 import React from "react";
-
+import FormComponent from "./FormComponent";
 class MyComponent extends React.Component {
-    render(){
-        return(
-            <>
-                <h1>First Component</h1>
-               <button>Click Con Cac</button>
-            </>
-        )
-    }
+    
+      render(){
+         return (
+          <>
+          
+           <FormComponent/>
+          </>
+         )
+      }
 }
 
 export default MyComponent

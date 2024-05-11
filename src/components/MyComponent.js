@@ -2,16 +2,23 @@ import React from "react";
 import FormComponent from "./FormComponent";
 import ShowInfor from "./ShowInfo";
 class MyComponent extends React.Component {
-    
+     
+    state = {
+        listUsers : [
+            {id: 1, name: "Hoi Dan IT" , age: 30},
+            {id: 2, name: "Hoi Dan AOE" , age: 25},
+            {id: 3, name: "Hoi Dan Lien Minh" , age: 65},
+            {id: 4, name: "Hoi Dan Lien Minh" , age: 65},
+            {id: 5, name: "Hoi Dan Lien Minh" , age: 65}
+        ]
+    }
+
       render(){
-        const inforArr = ['a','b','c']
          return (
           <>
            <FormComponent/>
            <br/><br/>
-           <ShowInfor name= "Bảo Ngọc" age = {24} address = "TP.HCM" inforArr = {inforArr}/>
-           <hr/>
-           <ShowInfor name= "Hoi Dan IT" age = {30} address = "Hà Nội" inforArr = {inforArr}/>
+           <ShowInfor listUsers = {this.state.listUsers}/>
           </>
          )
       }

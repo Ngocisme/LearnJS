@@ -1,14 +1,24 @@
 import React from "react";
 
-class ShowInfor extends React.Component{
-    render(){
-        console.log(this.props);
-        const {name, age, address} = this.props;
-        return(
+
+class ShowInfor extends React.Component {
+    render() {
+        const { listUsers } = this.props;
+        console.log(listUsers);
+        return (
             <>
-               <p>My name's {name}</p>
-               <p>My age's {age}</p>
-               <p>My address's {address}</p>
+                {listUsers.map(
+                    (user) => {
+                        return (
+                            <div key={user.id}>
+                                <br/>
+                                <p>ID {user.id}</p>
+                                <p>My name's {user.name}</p>
+                                <p>My age's {user.age}</p>
+                            </div>
+                        )
+                    }
+                )}
             </>
         )
     }

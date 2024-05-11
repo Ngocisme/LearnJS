@@ -9,31 +9,52 @@ import React from 'react';
 class App extends React.Component {
 
   state = {
-    name: 'Eric',
-    adress: 'nam Ky',
-    age: 26
+    name: '',
+    adress: '',
+    age: 0
   }
 
-  handleClick= (event) =>{
-    console.log("Tên: ", this.state.name)
-    this.setState({
-      name: "Lennon"
-    })
-  }
+handleForm = (event) => {
+  this.setState({
+    name: event.target.value,
+    age: event.target.value
+  })
+}
 
-  handleOnMouse = (event) => {
-    console.log("Tên: ", this.state.name)
-    this.setState({
-      name: "John"
-    })
-  }
+handleFormAge = (event) => {
+  this.setState({
+    age: event.target.value
+  })
+}
+
+handleFormAddress = (event) => {
+  this.setState({
+    adress: event.target.value
+  })
+}
+
+submitForm = (event) => {
+  event.preventDefault();
+ console.log(this.state)
+}
+
 
   render(){
      return (
       <>
-        <h1>{this.state.name}</h1>
-        <button onMouseEnter={this.handleClick}>Click here</button>
-        <button onMouseEnter={this.handleOnMouse}>Hover Here</button>
+      <p>My name is {this.state.name} and i am {this.state.age}</p>
+        <form onSubmit={(event)=> this.submitForm(event)}>
+          <input type='text'
+          onChange={(event)=>  this.handleForm(event) }
+          />
+           <input type='text'
+          onChange={(event)=>  this.handleFormAddress(event) }
+          />
+           <input type='number'
+          onChange={(event)=>  this.handleFormAge(event) }
+          />
+          <button>Submit</button>
+        </form>
       </>
      )
   }

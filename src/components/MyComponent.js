@@ -1,24 +1,28 @@
 import React from "react";
 import FormComponent from "./FormComponent";
-import ShowInfor from "./ShowInfo";
+import AddShowInfor from "./AddShowInfo";
+import { listeners } from "process";
 class MyComponent extends React.Component {
      
     state = {
         listUsers : [
             {id: 1, name: "Hoi Dan IT" , age: 30},
-            {id: 2, name: "Hoi Dan AOE" , age: 25},
-            {id: 3, name: "Hoi Dan Lien Minh" , age: 65},
-            {id: 4, name: "Hoi Dan Lien Minh" , age: 65},
-            {id: 5, name: "Hoi Dan Lien Minh" , age: 65}
         ]
     }
-
+    addUser = (userObject) => {
+       this.setState({
+        listUsers: [userObject ,...this.state.listUsers] 
+       })
+    }
       render(){
          return (
           <>
-           <FormComponent/>
+           <FormComponent
+            addUser = {this.addUser}
+           />
            <br/><br/>
-           <ShowInfor listUsers = {this.state.listUsers}/>
+           <AddShowInfor listUsers = {this.state.listUsers}
+           />
           </>
          )
       }

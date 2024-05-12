@@ -2,9 +2,7 @@ import React from "react";
 
 class FormComponent extends React.Component{
     state = {
-        name: 'Bảo Ngọc',
-        adress: 'TP.HCM',
-        age: 23
+        
       }
     
     handleForm = (event) => {
@@ -28,7 +26,11 @@ class FormComponent extends React.Component{
     
     submitForm = (event) => {
       event.preventDefault();
-     console.log(this.state)
+     this.props.addUser({
+      id: 1,
+      name: this.state.name,
+      age : this.state.age
+     })
     }
     render(){
         return(

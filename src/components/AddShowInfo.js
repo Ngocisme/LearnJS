@@ -1,7 +1,7 @@
 import React from "react";
 
 
-class ShowInfor extends React.Component {
+class AddShowInfor extends React.Component {
     state = {
         showListUsers : true
     }
@@ -24,7 +24,6 @@ class ShowInfor extends React.Component {
                                 <>
                                     {this.state.showListUsers &&
                                         <div key={user.id} className={user.age <= 30 ? "green" : "red"}>
-                                            <br /><p>User have age below 30</p>
                                             <p>ID {user.id}</p>
                                             <p>My name's {user.name}</p>
                                             <p>My age's {user.age}</p>
@@ -41,4 +40,4 @@ class ShowInfor extends React.Component {
     }
 }
 
-export default ShowInfor
+export default AddShowInfor

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 
 // class AddShowInfor extends React.Component {
@@ -58,8 +58,20 @@ import React from "react";
 
 const AddShowInfor = (props) => {
                 const { listUsers } = props;
+
+                const [isShowHideListUser , setShowHideListUser] = useState(true);
+
+                const handleShowHideListUser = () => {
+                    // alert('こんにちわ')
+                    setShowHideListUser(!isShowHideListUser)
+                }
+                
                 return (
                     <>
+                     <button onClick={ () => handleShowHideListUser() }>
+                     {isShowHideListUser === true ? "Hide list users" : "Show list users"}
+                     </button>
+                        {isShowHideListUser &&
                         <>
                             {listUsers.map(
                                 (user) => {
@@ -80,6 +92,7 @@ const AddShowInfor = (props) => {
                                 }
                             )}
                         </>
+                          }
                     </>
                 )
             

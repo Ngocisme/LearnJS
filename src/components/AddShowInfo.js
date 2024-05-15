@@ -5,6 +5,23 @@ class AddShowInfor extends React.Component {
     state = {
         showListUsers : true
     }
+
+    componentDidMount() {
+        console.log("component did mount")
+        setTimeout(() => {
+            document.title = "Hoi Dan IT"
+        } )
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        console.log("component did update", this.props,prevProps)
+        if(this.props.listUsers !== prevProps.listUsers){
+            if(this.props.listUsers.length === 5){
+                alert("you got 5 users")
+            }
+        }
+    }
+
     handleShowHide = () => {
        this.setState({
         showListUsers : !this.state.showListUsers

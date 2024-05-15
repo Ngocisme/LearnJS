@@ -35,7 +35,7 @@ class FormComponent extends React.Component{
     render(){
         return(
             <>
-            <p>My name is {this.state.name} and i am {this.state.age}</p>
+            <p style={{color: 'pink'}}>My name is {this.state.name} and i am {this.state.age}</p>
             <form onSubmit={(event)=> this.submitForm(event)}>
             <label>Your name: </label>
             <input type='text'

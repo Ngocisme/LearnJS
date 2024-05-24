@@ -14,11 +14,12 @@ root.render(
   <Provider store={store}>
     {/* <React.StrictMode> */}
     <BrowserRouter>
-     <Routes>
-      <Route path='/' element={<App/>}/>
-      <Route path='/Users' element={<User/>}/>
-      <Route path='/Admins' element={<Admin/>}/>
-     </Routes>
+      <Routes>
+        <Route path='/' element={<App />}>
+          <Route path='/Users' element={<User />} />
+          <Route path='/Admins' element={<Admin />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
     {/* </React.StrictMode> */}
   </Provider>

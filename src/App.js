@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Products from "./components/Products/Products";
+import queryString from "query-string";
+import { useLocation } from "react-router-dom";
+import Header from "./components/Header/Header";
 
 function App() {
     const initProducts = [
@@ -52,7 +55,9 @@ function App() {
             status: "new",
         },
     ];
+    const location = useLocation();
     const [products, setProducts] = useState(initProducts);
+    const [filteredStatus, setFilteredStatus] = useState("all");
     const removeProduct = (id) => {
         console.log("test id: ", id);
         let newProducts = [...products];
@@ -60,8 +65,16 @@ function App() {
         newProducts = newProducts.filter((product) => product.id !== id);
         setProducts(newProducts);
     };
+
+    useEffect(() => {
+        const params = queryString.parse(location.search);
+        setFilteredStatus(params.status || "all");
+    }, [location.search]);
+
+    const renderProducts = products.filter((product) => filteredStatus === "all" || filteredStatus === product.status);
     return (
         <div className="App">
+            <Header />
             <Products products={products} removeProduct={removeProduct} />
         </div>
     );

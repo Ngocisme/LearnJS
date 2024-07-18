@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "name": "Iphone 10 Pro",
+      "price": 1000,
+      "content": "This is description or content of this product, .....",
+      "status": "Active",
+      "id": "1"
+    },
+    {
+      "id": "4",
+      "name": "Iphone 14 Pro Max",
+      "price": 2000,
+      "content": "This is description or content of this product, .....",
+      "status": "new"
+    },
+    {
+      "id": "3",
+      "name": "Iphone 13 Pro củ lz",
+      "price": 1500,
+      "content": "This is description or content of this product, .....",
+      "status": "active"
+    },
+    {
+      "id": "3",
+      "name": "Iphone 13 Pro củ lz",
+      "price": 1500,
+      "content": "This is description or content of this product, .....",
+      "status": "active"
+    }
+  ]
+}

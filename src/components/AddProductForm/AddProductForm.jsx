@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 function AddProductForm() {
     const [name, setName] = useState("");
@@ -17,7 +18,11 @@ function AddProductForm() {
                 content: content,
                 status: status,
             });
-            console.log("Test create: ", res);
+            toast.success("Add thành công");
+            setName("");
+            setPrice("");
+            setContent("");
+            setStatus("");
         } catch (error) {
             console.log(error);
         }
@@ -45,7 +50,7 @@ function AddProductForm() {
                 <input type="text" id="status" name="status" onChange={(e) => setStatus(e.target.value)} />
                 <br />
                 <br />
-                <button type="submit" onClick={handleAddProduct}>
+                <button type="button" onClick={handleAddProduct}>
                     Add
                 </button>
             </form>

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function UpdateProduct() {
     const [name, setName] = useState("");
@@ -21,7 +22,7 @@ function UpdateProduct() {
                 content: content,
                 status: status,
             });
-            alert("Xong r đó cu");
+            toast.success("Thay đổi thông tin thành công");
         } catch (error) {
             alert("Error: ", error.message);
         }

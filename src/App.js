@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ProductList from "./components/ProductList/ProductList";
 import AddProductForm from "./components/AddProductForm/AddProductForm";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
     const [products, setProducts] = useState([]);
@@ -21,6 +23,20 @@ function App() {
     }, []);
     return (
         <div className="App">
+            <ToastContainer
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
+            {/* Same as */}
+            <ToastContainer />
             <h1>Chơi với restful api</h1>
             <ProductList products={products} />
             <AddProductForm />

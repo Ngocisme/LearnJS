@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Products from "./components/Products/Products";
 import queryString from "query-string";
 import { useLocation } from "react-router-dom";
 import Header from "./components/Header/Header";
+import SampleReactMemo from "./components/SampleReactMemo/SampleReactMemo";
+import AddProduct from "./components/AddProduct/AddProduct";
 
 function App() {
     const initProducts = [
@@ -72,10 +74,46 @@ function App() {
     }, [location.search]);
 
     const renderProducts = products.filter((product) => filteredStatus === "all" || filteredStatus === product.status);
+
+    const addNewProduct = useCallback((product) => {
+        setProducts((products) => [...products, product]);
+    }, []);
+
+    const result = useMemo(() => {
+        console.log("Render data");
+        let sum = 0;
+        for (let i = 0; i < 1000000; i++) {
+            sum += i;
+        }
+        return sum;
+    }, []);
+
+    const API_URL = "https://fakestoreapi.com/users";
+
+    const useFetch = (url) => {
+        const [data, setData] = useState([]);
+        console.log("usefetch render");
+        useEffect(() => {
+            fetch(API_URL)
+                .then((response) => response.json())
+                .then((data) => setData(data));
+        }, [url]); // Chạy một lần khi component mount
+        return [data];
+    };
+
+    const [data] = useFetch();
+
     return (
         <div className="App">
             <Header />
             <Products products={products} removeProduct={removeProduct} />
+            <SampleReactMemo txt="number 1,number2,number3,..." />
+            <AddProduct addNewProduct={addNewProduct} />
+            <div>demo calculate sum : {result}</div>
+            <div>
+                <h1>Data</h1>
+                <pre>{JSON.stringify(data, null, 2)}</pre>
+            </div>
         </div>
     );
 }

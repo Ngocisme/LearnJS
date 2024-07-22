@@ -1,0 +1,27 @@
+{
+  "contacts": [
+    {
+      "id": "1",
+      "fname": "Nguyễn",
+      "lname": "Bảo Ngọc",
+      "phone": "0906751234",
+      "description": "This is description or content of this contact, ....."
+    },
+    {
+      "id": "a219",
+      "fname": "bảo",
+      "lname": "ngọc",
+      "email": "nguyentheson029@gmail.com",
+      "phone": "0906851234",
+      "description": "asdadasfsadfafdas"
+    },
+    {
+      "id": "259c",
+      "fname": "bảo",
+      "lname": "ngọc2",
+      "email": "ngocntbps26285@fpt.edu.vn",
+      "phone": "0906851234",
+      "description": "asdadasfsadfafdas"
+    }
+  ]
+}

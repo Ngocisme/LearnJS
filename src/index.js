@@ -5,6 +5,8 @@ import App from "./App";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UpdateProduct from "./components/UpdateProduct/UpdateProduct";
 import DeleteProduct from "./components/DeleteProduct/DeleteProduct";
+import Contact from "./pages/Contact/Contact";
+import "bootstrap/dist/css/bootstrap.css";
 
 const user = {
     username: "eva",
@@ -18,6 +20,7 @@ root.render(
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<App />} />
+                <Route path="/contact" element={<Contact />} />
                 <Route path="/products/update/:productId" element={<UpdateProduct />} />
                 <Route path="/products/delete/:productId" element={<DeleteProduct />} />
             </Routes>
